@@ -47,7 +47,7 @@ app.use(methodOverride());
 app.use(session({ // Activamos las sesiones para el servidor
 	resave: true,
 	saveUninitialized: true,
-	secret: 'pymid866' })
+	secret: 'codeando866' })
 );
 
 // midleware
