@@ -63,7 +63,9 @@ app.get('/', function (req, res){
 	res.send('Bienvenido al api rest');
 });
 
-// Exportamos las rutas
+// Exportamos las rutas del CRUD
+require('./controllers/categoriasController')(app);
+require('./controllers/cursosController')(app);
 require('./controllers/usersController')(app);
 
 // Corremos el servidor

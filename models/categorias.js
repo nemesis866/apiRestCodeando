@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var categorias = new Schema({
-	nombre: String
+	titulo: String
 });
 
 // Exportamos el modelo
