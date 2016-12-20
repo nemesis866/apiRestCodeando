@@ -120,13 +120,10 @@ module.exports = function (app)
 
 	var update = function (content)
 	{
-		// Obtenemos la fecha actual
-		var fecha = new Date();
-
 		// Si existe actualizamos la información
 		content.username = req.body.data['name'];
 		content.nombre = req.body.data['name'];
-		content.ultimo_acceso = fecha.getFullYear();
+		content.ultimo_acceso = Date.now;
 
 		// Guardamos los datos
 		content.save(function (err){

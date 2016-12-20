@@ -34,6 +34,26 @@ La configuracion es muy sencilla, utilizamos el metodo connect() de mongodb para
 1.- Un String con los parametros de conexion
 2.- Un callback que nos informa si la conexion fue exitosa o existio algun error.
 
+# Comandos para mongoDB
+
+## Iniciar mongoDB
+
+```
+sudo service mongod start
+```
+
+## Detener mongoDB
+
+```
+sudo service mongod stop
+```
+
+## Reiniciar mongoDB
+
+```
+sudo service mongod restart
+```
+
 # Schema
 
 Un schema es una coleccion de datos (se podria ver como una tabla en otros gestores).
