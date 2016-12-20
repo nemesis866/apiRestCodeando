@@ -1,0 +1,25 @@
+{
+  "name": "api-rest-pymaid",
+  "version": "1.0.0",
+  "description": "Api rest para plataforma pymid",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "api",
+    "rest"
+  ],
+  "author": "Paulo Andrade",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.8",
+    "serve-favicon": "^2.3.0"
+  }
+}
