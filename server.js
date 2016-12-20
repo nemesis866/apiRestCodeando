@@ -65,7 +65,9 @@ app.get('/', function (req, res){
 
 // Exportamos las rutas del CRUD
 require('./controllers/categoriasController')(app);
+require('./controllers/contactoController')(app);
 require('./controllers/cursosController')(app);
+require('./controllers/sitemapController')(app);
 require('./controllers/usersController')(app);
 
 // Corremos el servidor

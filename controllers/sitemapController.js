@@ -1,5 +1,5 @@
 /*
-* CRUD API REST - Categorias
+* CRUD API REST - sitemap
 *
 * Autor: Paulo Andrade
 * Email: Source.compu@gmail.com
@@ -12,26 +12,26 @@
 module.exports = function (app)
 {
 	// Importamos los modelos
-	var categories = require('./../models/categorias');
+	var sitemaps = require('./../models/sitemap');
 
 	/********************************************
 	Metodos GET
 	********************************************/
 
-	// Obtenemos todas las categorias
-	var findAllCategories = function (req, res)
+	// Obtenemos todos los sitemaps
+	var findAllSitemaps = function (req, res)
 	{
-		categories.find(function (err, content){
+		sitemaps.find(function (err, content){
 			if(!err) res.send(content);
 			else console.log('Error: ' + err);
 		});
 	}
 
-	// Obtenemos una categoria en concreto
-	var findCategoryById = function (req, res)
+	// Obtenemos un sitempa en concreto
+	var findSitemapById = function (req, res)
 	{
-		// Pasamos como parametro el id de la categoria
-		categories.findById(req.params.id, function (err, content){
+		// Pasamos como parametro el id del sitemap
+		sitemaps.findById(req.params.id, function (err, content){
 			if(!err) res.send(content);
 			else console.log('Error: ' + err);
 		});
@@ -41,34 +41,34 @@ module.exports = function (app)
 	Metodos POST
 	********************************************/
 
-	// Agregamos una categoria nueva
-	var addCategory = function (req, res)
+	// Agregamos un sitemap nuevo
+	var addSitemap = function (req, res)
 	{
-		var category = new categories({
-			titulo: req.body.data['titulo'],
+		var sitemap = new sitemaps({
+			registro: req.body.data['registro']
 		});
 
 		// Guardamos el registro
-		category.save(function (err){
+		sitemap.save(function (err){
 			if(!err) console.log('Guardado con exito');
 			else console.log('Error: ' + err);
 		});
 
 		// Mostramos en pantalla
-		res.send(category);
+		res.send(sitemap);
 	}
 
 	/********************************************
 	Metodos PUT
 	********************************************/
 
-	// Actualizamos una categoria
-	var updateCategory = function (req, res)
+	// Actualizamos un sitemap
+	var updateSitemap = function (req, res)
 	{
-		categories.findById(req.params.id, function (err, content){
+		sitemaps.findById(req.params.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
-				content.titulo = req.body.data['titulo'];
+				content.registro = req.body.data['registro'];
 
 				// Guardamos los datos
 				content.save(function (err){
@@ -86,12 +86,12 @@ module.exports = function (app)
 	Metodos DELETE
 	********************************************/
 
-	// Eliminamos una categoria
-	var deleteCategory = function (req, res)
+	// Eliminamos un sitemap
+	var deleteSitemap = function (req, res)
 	{
-		// Buscamos la categoria
-		categories.findById(req.params.id, function (err, content){
-			// Eliminamos el usuario
+		// Buscamos el contacto
+		sitemaps.findById(req.params.id, function (err, content){
+			// Eliminamos el contacto
 			content.remove(function (err){
 				if(!err) console.log('Eliminado con exito');
 				else console.log('Error: ' + err);		
@@ -100,9 +100,9 @@ module.exports = function (app)
 	}
 
 	// Generamos las rutas
-	app.get('/categories', findAllCategories);
-	app.get('/categories/:id', findCategoryById);
-	app.post('/categories', addCategory);
-	app.put('/categories/:id', updateCategory);
-	app.delete('/categories/:id', deleteCategory);
+	app.get('/sitemap', findAllSitemaps);
+	app.get('/sitemap/:id', findSitemapById);
+	app.post('/sitemap', addSitemap);
+	app.put('/sitemap/:id', updateSitemap);
+	app.delete('/sitemap/:id', deleteSitemap);
 }
