@@ -45,7 +45,7 @@ module.exports = function (app)
 	var addCategory = function (req, res)
 	{
 		var category = new categories({
-			titulo: req.body.data['titulo'],
+			titulo: req.body.titulo,
 		});
 
 		// Guardamos el registro
@@ -68,7 +68,7 @@ module.exports = function (app)
 		categories.findById(req.params.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
-				content.titulo = req.body.data['titulo'];
+				content.titulo = req.body.titulo;
 
 				// Guardamos los datos
 				content.save(function (err){
