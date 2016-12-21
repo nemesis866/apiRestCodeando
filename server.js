@@ -4,7 +4,7 @@
 * Autor: Paulo Andrade
 * Email: Source.compu@gmail.com
 * Date: 20/12/2016
-* Update: 20/12/2016
+* Update: 21/12/2016
 */
 
 // Exportamos las librerias a utilizar
@@ -26,6 +26,7 @@ Configuracion de la base de datos
 
 // Creamos la conexion de la base de datos
 // mongodb://localhost/pymid (funcionaba con esto)
+mongoose.Promise = require('bluebird'); // Libreria para trabajar con ES6
 mongoose.connect('mongodb://localhost/codeando', function (err, res){
 	// Verificamos si tiene algun error
 	if(err) console.log('Error conectando a la DB: ' + err);
@@ -64,6 +65,8 @@ app.get('/', function (req, res){
 });
 
 // Exportamos las rutas del CRUD
+require('./controllers/avisosController')(app);
+require('./controllers/capitulosController')(app);
 require('./controllers/categoriasController')(app);
 require('./controllers/contactoController')(app);
 require('./controllers/cursosController')(app);
