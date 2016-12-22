@@ -46,15 +46,15 @@ module.exports = function (app)
 	{
 		// Modelo para guardar registro por facebook
 		var curso = new cursos({
-			autor: req.body.data['autor'],
-			categoria: req.body.data['categoria'],
-			description: req.body.data['descripcion'],
-			img: req.body.data['img'],
-			instruccion: req.body.data['instruccion'],
-			requeriment: req.body.data['requeriment'],
-			subtitulo: req.body.data['subtitulo'],
-			titulo: req.body.data['titulo'],
-			url: req.body.data['url']
+			autor: req.body.autor,
+			categoria: req.body.categoria,
+			description: req.body.descripcion,
+			img: req.body.img,
+			instruccion: req.body.instruccion,
+			requeriment: req.body.requeriment,
+			subtitulo: req.body.subtitulo,
+			titulo: req.body.titulo,
+			url: req.body.url
 		});
 
 		// Guardamos el registro

@@ -19,7 +19,7 @@ var cursos = new Schema({
 	fecha: { type: Date, default: Date.now },
 	fecha_update: { type: Date, default: Date.now },
 	img: { type: String, default: '' },
-	instruccion: String,
+	instruccion: { type: String, default: '' },
 	public: { type: String, default: 'NO' },
 	requeriment: String,
 	revision: { type: String, default: 'NO' },
