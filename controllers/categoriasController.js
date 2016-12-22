@@ -65,7 +65,7 @@ module.exports = function (app)
 	// Actualizamos una categoria
 	var updateCategory = function (req, res)
 	{
-		categories.findById(req.params.id, function (err, content){
+		categories.findById(req.body.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
 				content.titulo = req.body.titulo;
@@ -96,6 +96,8 @@ module.exports = function (app)
 				if(!err) console.log('Eliminado con exito');
 				else console.log('Error: ' + err);		
 			});
+
+			res.send(content);
 		});
 	}
 
@@ -103,6 +105,6 @@ module.exports = function (app)
 	app.get('/categories', findAllCategories);
 	app.get('/categories/:id', findCategoryById);
 	app.post('/categories', addCategory);
-	app.put('/categories/:id', updateCategory);
+	app.put('/categories', updateCategory);
 	app.delete('/categories/:id', deleteCategory);
 }
