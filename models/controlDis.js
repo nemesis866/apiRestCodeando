@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema; // ORM
 
 // Creamos la coleccion (tabla) usuarios
-var controldis = new Schema({
+var controlDis = new Schema({
 	id_discusion: { type: Number, required: true }, // *
 	user: { type: Number, required: true } //*
 });

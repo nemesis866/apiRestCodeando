@@ -70,6 +70,8 @@ require('./controllers/avisosController')(app);
 require('./controllers/capitulosController')(app);
 require('./controllers/categoriasController')(app);
 require('./controllers/contactoController')(app);
+require('./controllers/controlDisController')(app);
+require('./controllers/controlResController')(app);
 require('./controllers/cursosController')(app);
 require('./controllers/sitemapController')(app);
 require('./controllers/usersController')(app);
