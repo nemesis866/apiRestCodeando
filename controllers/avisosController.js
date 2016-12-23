@@ -66,7 +66,7 @@ module.exports = function (app)
 	// Actualizamos un contacto
 	var updateAviso = function (req, res)
 	{
-		avisos.findById(req.params.id, function (err, content){
+		avisos.findById(req.body.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
 				content.contenido = req.body.contenido;
@@ -105,6 +105,6 @@ module.exports = function (app)
 	app.get('/avisos', findAllAvisos);
 	app.get('/avisos/:id', findAvisoById);
 	app.post('/avisos', addAviso);
-	app.put('/avisos/:id', updateAviso);
+	app.put('/avisos/', updateAviso);
 	app.delete('/avisos/:id', deleteAviso);
 }

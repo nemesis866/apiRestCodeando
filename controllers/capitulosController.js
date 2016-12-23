@@ -68,7 +68,7 @@ module.exports = function (app)
 	// Actualizamos un capitulo
 	var updateCapitulo = function (req, res)
 	{
-		capitulos.findById(req.params.id, function (err, content){
+		capitulos.findById(req.body.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
 				content.id_curso = req.body.id_curso;
@@ -106,9 +106,9 @@ module.exports = function (app)
 	}
 
 	// Generamos las rutas
-	app.get('/capitulos', findAllCapitulos);
-	app.get('/capitulos/:id', findCapituloById);
-	app.post('/capitulos', addCapitulo);
-	app.put('/capitulos/:id', updateCapitulo);
-	app.delete('/capitulos/:id', deleteCapitulo);
+	app.get('/chapters', findAllCapitulos);
+	app.get('/chapters/:id', findCapituloById);
+	app.post('/chapters', addCapitulo);
+	app.put('/chapters/', updateCapitulo);
+	app.delete('/chapters/:id', deleteCapitulo);
 }
