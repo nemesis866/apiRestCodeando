@@ -48,7 +48,7 @@ module.exports = function (app)
 		var curso = new cursos({
 			autor: req.body.autor,
 			categoria: req.body.categoria,
-			description: req.body.descripcion,
+			description: req.body.description,
 			img: req.body.img,
 			instruccion: req.body.instruccion,
 			requeriment: req.body.requeriment,
@@ -74,20 +74,19 @@ module.exports = function (app)
 	// Actualizamos un curso
 	var updateCurso = function (req, res)
 	{
-		cursos.findById(req.params.id, function (err, content){
+		cursos.findById(req.body.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
 				// Si existe actualizamos la información
-				content.autor = req.body.data['autor'];
-				content.categoria = req.body.data['categoria'];
-				content.description = req.body.data['descripcion'];
-				content.fecha_update = Date.now;
-				content.img = req.body.data['img'];
-				content.instruccion = req.body.data['instruccion'];
-				content.requeriment = req.body.data['requeriment'];
-				content.subtitulo = req.body.data['subtitulo'];
-				content.titulo = req.body.data['titulo'];
-				content.url = req.body.data['url'];
+				content.autor = req.body.autor;
+				content.categoria = req.body.categoria;
+				content.description = req.body.description;
+				content.img = req.body.img;
+				content.instruccion = req.body.instruccion;
+				content.requeriment = req.body.requeriment;
+				content.subtitulo = req.body.subtitulo;
+				content.titulo = req.body.titulo;
+				content.url = req.body.url;
 
 				// Guardamos los datos
 				content.save(function (err){
@@ -115,6 +114,8 @@ module.exports = function (app)
 				if(!err) console.log('Eliminado con exito');
 				else console.log('Error: ' + err);		
 			});
+
+			res.send(content);
 		});
 	}
 
@@ -122,6 +123,6 @@ module.exports = function (app)
 	app.get('/cursos', findAllCursos);
 	app.get('/cursos/:id', findCursoById);
 	app.post('/cursos', addCurso);
-	app.put('/cursos/:id', updateCurso);
+	app.put('/cursos', updateCurso);
 	app.delete('/cursos/:id', deleteCurso);
 }
