@@ -37,6 +37,16 @@ module.exports = function (app)
 		});
 	}
 
+	// Obtenemos los capitulos de un curso en concreto
+	var findCapituloByCurso = function (req, res)
+	{
+		// Pasamos como paraetro el ID del curso
+		capitulos.find({ id_curso: req.params.id }, function (err, content){
+			if(!err) res.send(content);
+			else console.log('Error: ' + err);	
+		});
+	}
+
 	/********************************************
 	Metodos POST
 	********************************************/
@@ -45,7 +55,7 @@ module.exports = function (app)
 	var addCapitulo = function (req, res)
 	{
 		var capitulo = new capitulos({
-			id_curso: req.body.id_curso,
+			id_curso: req.body.id,
 			titulo: req.body.titulo,
 			autor: req.body.autor,
 			orden: req.body.orden
@@ -102,12 +112,15 @@ module.exports = function (app)
 				if(!err) console.log('Eliminado con exito');
 				else console.log('Error: ' + err);		
 			});
+
+			res.send(content);
 		});
 	}
 
 	// Generamos las rutas
 	app.get('/chapters', findAllCapitulos);
 	app.get('/chapters/:id', findCapituloById);
+	app.get('/chapters/course/:id', findCapituloByCurso);
 	app.post('/chapters', addCapitulo);
 	app.put('/chapters/', updateCapitulo);
 	app.delete('/chapters/:id', deleteCapitulo);

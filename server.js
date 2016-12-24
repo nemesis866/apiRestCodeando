@@ -27,7 +27,7 @@ Configuracion de la base de datos
 // Creamos la conexion de la base de datos
 // mongodb://localhost/pymid (funcionaba con esto)
 mongoose.Promise = require('bluebird'); // Libreria para trabajar con ES6
-mongoose.connect('mongodb://localhost/codeando', function (err, res){
+mongoose.connect('mongodb://localhost/codeandoa', function (err, res){
 	// Verificamos si tiene algun error
 	if(err) console.log('Error conectando a la DB: ' + err);
 	else console.log('Conexion establecida a la DB :)');

@@ -20,7 +20,7 @@ var filesTemp = new Schema({
 	name: { type: String, required: true }, // *
 	size: Number,
 	type: { type: String, default: 'DIS' },
-	user: { type: Number, required: true } // *
+	user: { type: String, required: true } // *
 });
 
 // Exportamos el modelo

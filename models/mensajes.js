@@ -15,7 +15,7 @@ var mongoose = require('mongoose'),
 var mensajes = new Schema({
 	fecha: { type: Date, default: Date.now },
 	mensaje: String,
-	user: { type: Number, required: true }, // *
+	user: { type: String, required: true }, // *
 	visitante: { type: Number, required: true } // *
 });
 

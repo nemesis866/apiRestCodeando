@@ -13,10 +13,10 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var temas = new Schema({
-	id_curso: { type: Number, required: true }, // *
-	id_capitulo: { type: Number, required: true }, // *
+	id_curso: { type: String, required: true }, // *
+	id_capitulo: { type: String, required: true }, // *
 	titulo: { type: String, default: 'Tema nuevo' },
-	autor: { type: Number, required: true }, // *
+	autor: { type: String, required: true }, // *
 	info: { type: String, default: 'Informacion del tema' },
 	doc: { type: String, default: 'Documentacion del tema' },
 	video: { type: String, default: '' },

@@ -13,8 +13,8 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var controlRes = new Schema({
-	id_respuesta: { type: Number, required: true }, // *
-	user: { type: Number, required: true } //*
+	id_respuesta: { type: String, required: true }, // *
+	user: { type: String, required: true } //*
 });
 
 // Exportamos el modelo

@@ -14,12 +14,12 @@ var mongoose = require('mongoose'),
 // Creamos la coleccion (tabla) usuarios
 var notificaciones = new Schema({
 	fecha: { type: Date, default: Date.now },
-	id_curso: { type: Number, required: true }, // *
-	id_discusion: { type: Number, required: true }, // *
+	id_curso: { type: String, required: true }, // *
+	id_discusion: { type: String, required: true }, // *
 	status: { type: String, default: 'NO' },
 	texto: String,
 	type: { type: String, default: 'DIS' },
-	user: { type: Number, required: true } // *
+	user: { type: String, required: true } // *
 });
 
 // Exportamos el modelo

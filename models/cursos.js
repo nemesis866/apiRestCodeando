@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var cursos = new Schema({
-	autor: { type: Number, required: true }, // *
+	autor: { type: String, required: true }, // *
 	categoria: String,
 	description: String,
 	fecha: { type: Date, default: Date.now },

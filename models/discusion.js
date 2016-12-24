@@ -14,10 +14,10 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var discusiones = new Schema({
-	autor: { type: Number, required: true }, // *
+	autor: { type: String, required: true }, // *
 	contenido: String,
 	fecha: { type: Date, default: Date.now },
-	id_curso: { type: Number, required: true },
+	id_curso: { type: String, required: true },
 	link: String,
 	respuestas: { type: Number, default: 0 },
 	titulo: { type: String, default: 'Discusion' },

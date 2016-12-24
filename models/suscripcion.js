@@ -13,8 +13,8 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var suscripcion = new Schema({
-	id_curso: { type: Number, required: true }, // *
-	user: { type: Number, required: true }, // *
+	id_curso: { type: String, required: true }, // *
+	user: { type: String, required: true }, // *
 	fecha: { type: Date, default: Date.now }
 });
 

@@ -14,9 +14,9 @@ var mongoose = require('mongoose'),
 // Creamos la coleccion (tabla) usuarios
 var notas = new Schema({
 	fecha: { type: Date, default: Date.now },
-	id_curso: { type: Number, required: true }, // *
+	id_curso: { type: String, required: true }, // *
 	nota: { type: String, default: 'Nota' },
-	user: { type: Number, required: true } // *
+	user: { type: String, required: true } // *
 });
 
 // Exportamos el modelo

@@ -17,11 +17,11 @@ var files = new Schema({
 	control: { type: Number, default: 0 },
 	ext: String,
 	fecha: { type: Date, default: Date.now },
-	id_discusion: { type: Number, required: true }, // *
+	id_discusion: { type: String, required: true }, // *
 	name: { type: String, required: true }, // *
 	size: Number,
 	type: { type: String, default: 'DIS' },
-	user: { type: Number, required: true } // *
+	user: { type: String, required: true } // *
 });
 
 // Exportamos el modelo

@@ -13,11 +13,10 @@ var mongoose = require('mongoose'),
 
 // Creamos la coleccion (tabla) usuarios
 var capitulos = new Schema({
-	id_curso: { type: Number, required: true }, // *
+	id_curso: { type: String, required: true }, // *
 	titulo: String,
-	autor: { type: Number, required: true }, // *
-	orden: Number,
-	visibility: { type: String, default: 'NO' },
+	autor: { type: String, required: true }, // *
+	orden: Number
 });
 
 // Exportamos el modelo

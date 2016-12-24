@@ -15,7 +15,7 @@ var mongoose = require('mongoose'),
 var avisos = new Schema({
 	contenido: String,
 	fecha: { type: Date, default: Date.now },
-	id_curso: { type: Number, required: true } // *
+	id_curso: { type: String, required: true } // *
 });
 
 // Exportamos el modelo
