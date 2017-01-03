@@ -41,7 +41,7 @@ module.exports = function (app)
 	var findTemaByCapitulo = function (req, res)
 	{
 		// Pasamos como paraetro el ID del caitulo
-		temas.find({ id_capitulo: req.params.id, id_curso: req.params.curso }, function (err, content){
+		temas.find({ id_capitulo: req.params.capitulo, id_curso: req.params.curso }, function (err, content){
 			if(!err) res.send(content);
 			else console.log('Error: ' + err);	
 		});
@@ -119,7 +119,7 @@ module.exports = function (app)
 	// Generamos las rutas
 	app.get('/themes', findAllTemas);
 	app.get('/themes/:id', findTemaById);
-	app.get('/themes/chapters/:id/:curso', findTemaByCapitulo);
+	app.get('/themes/chapters/:capitulo/:curso', findTemaByCapitulo);
 	app.post('/themes', addTema);
 	app.put('/themes/', updateTema);
 	app.delete('/themes/:id', deleteTema);
