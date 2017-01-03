@@ -81,9 +81,7 @@ module.exports = function (app)
 		capitulos.findById(req.body.id, function (err, content){
 			if(!err){
 				// Actualizamos los datos
-				content.id_curso = req.body.id_curso;
 				content.titulo = req.body.titulo;
-				content.autor = req.body.autor;
 				content.orden = req.body.orden;
 
 				// Guardamos los datos
