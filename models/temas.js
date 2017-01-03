@@ -20,9 +20,8 @@ var temas = new Schema({
 	info: { type: String, default: 'Informacion del tema' },
 	doc: { type: String, default: 'Documentacion del tema' },
 	video: { type: String, default: '' },
-	github: String,
-	orden: { type: Number },
-	visibility: { type: String, default: 'NO' }
+	github: { type: String, defualt: '' },
+	orden: { type: Number }
 });
 
 // Exportamos el modelo

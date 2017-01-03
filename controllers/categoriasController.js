@@ -9,8 +9,7 @@
 
 // Creamos un modulo para el controlador
 // @param app aplicacion de express
-module.exports = function (app)
-{
+module.exports = function (app){
 	// Importamos los modelos
 	var categories = require('./../models/categorias');
 

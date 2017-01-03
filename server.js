@@ -74,6 +74,7 @@ require('./controllers/controlDisController')(app);
 require('./controllers/controlResController')(app);
 require('./controllers/cursosController')(app);
 require('./controllers/sitemapController')(app);
+require('./controllers/temasController')(app);
 require('./controllers/usersController')(app);
 
 // Corremos el servidor
