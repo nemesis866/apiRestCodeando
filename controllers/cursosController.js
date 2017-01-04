@@ -36,6 +36,16 @@ module.exports = function (app)
 			else console.log('Error: ' + err);
 		});
 	}
+    
+    // Obtenemos los cursos de un solo autor
+    var findCursoByAutor = function (req, res)
+	{
+		// Pasamos como paraetro el ID del autor
+		cursos.find({ autor: req.params.id }, function (err, content){
+			if(!err) res.send(content);
+			else console.log('Error: ' + err);	
+		});
+	}
 
 	/********************************************
 	Metodos POST
@@ -122,6 +132,7 @@ module.exports = function (app)
 	// Generamos las rutas
 	app.get('/cursos', findAllCursos);
 	app.get('/cursos/:id', findCursoById);
+    app.get('/cursos/autor/:id', findCursoByAutor);
 	app.post('/cursos', addCurso);
 	app.put('/cursos', updateCurso);
 	app.delete('/cursos/:id', deleteCurso);

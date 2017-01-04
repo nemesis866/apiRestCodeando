@@ -144,3 +144,34 @@ app.get('/users/:id', findUserById);
 
 ### POST (guardar datos)
 
+# 
+
+MongoDB es un gestor de base de datos no relacional como lo son MySQL, Oracle y Postgree entre otras, pero con mongo podemos hacer algo parecido a las relaciones entre nuestros modelos, veamos dos modelos.-
+
+```js
+// Modelo 1
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+    
+var autor = new Schema({
+    nombre: String,
+    email: String
+});
+
+module.exports = mongoose.model('autor', autor);
+```
+
+```js
+// Modelo 2
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    autor = mongoose.model('autor');
+    
+var trabajo = new Schema({
+    autor: { type: Schema.ObjectId, ref: 'autor' },
+    titulo: String,
+    email: String
+});
+
+module.exports = mongoose.model('trabajo', trabajo);
+```
