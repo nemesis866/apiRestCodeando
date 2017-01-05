@@ -96,6 +96,29 @@ module.exports = function (app)
 			} else console.log('Error: ' + err);
 		});
 	}
+    
+    // Actualizamos la informacion de un tema
+	var updateData = function (req, res)
+	{
+		temas.findById(req.body.id, function (err, content){
+			if(!err){
+				// Actualizamos los datos
+				content.info = req.body.info;
+                content.doc = req.body.doc;
+                content.video = req.body.video;
+                content.github = req.body.github;
+
+				// Guardamos los datos
+				content.save(function (err){
+					if(!err) console.log('Actualizado con exito');
+					else console.log('Error: ' + err);		
+				});
+
+				// Mostramos en pantalla
+				res.send(content);
+			} else console.log('Error: ' + err);
+		});
+	}
 
 	/********************************************
 	Metodos DELETE
@@ -122,5 +145,6 @@ module.exports = function (app)
 	app.get('/themes/chapters/:capitulo/:curso', findTemaByCapitulo);
 	app.post('/themes', addTema);
 	app.put('/themes/', updateTema);
+    app.put('/themes/data/', updateData);
 	app.delete('/themes/:id', deleteTema);
 }
