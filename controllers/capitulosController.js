@@ -105,6 +105,22 @@ module.exports = function (app)
 	{
 		// Buscamos el contacto
 		capitulos.findById(req.params.id, function (err, content){
+            // Importamos los modelos
+	        var temas = require('./../models/temas');
+            // Obtenemos el ID del curso
+            var id = content.id_curso;
+            
+            // Buscamos los temas del capitulo
+            temas.find({ id_curso: id }, function (err, content){
+                // Eliminamos los temas del capitulo
+                for(var i = 0; i < content.length; i++){
+                    content[i].remove(function (err){
+                        if(!err) console.log('Eliminado con exito');
+                        else console.log('Error: ' + err);		
+                    });   
+                }
+            });
+            
 			// Eliminamos el contacto
 			content.remove(function (err){
 				if(!err) console.log('Eliminado con exito');

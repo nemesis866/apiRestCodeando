@@ -20,7 +20,7 @@ var temas = new Schema({
 	info: { type: String, default: 'Informacion del tema' },
 	doc: { type: String, default: 'Documentacion del tema' },
 	video: { type: String, default: '' },
-	github: { type: String, defualt: '' },
+	github: { type: String, default: '' },
 	orden: { type: Number }
 });
 

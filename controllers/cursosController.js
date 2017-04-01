@@ -13,6 +13,8 @@ module.exports = function (app)
 {
 	// Importamos los modelos
 	var cursos = require('./../models/cursos');
+    var capitulos = require('./../models/capitulos');
+    var temas = require('./../models/temas');
 
 	/********************************************
 	Metodos GET
@@ -117,7 +119,29 @@ module.exports = function (app)
 	// Eliminamos un curso
 	var deleteCurso = function (req, res)
 	{
-		// Buscamos el usuario
+		// Buscamos los capitulos del curso
+        capitulos.find({ id_curso: req.params.id }, function (err, content){
+			// Eliminamos los capitulos del curso
+            for(var i = 0; i < content.length; i++){
+                content[i].remove(function (err){
+                    if(!err) console.log('Eliminado con exito');
+                    else console.log('Error: ' + err);		
+                });
+            }
+		});
+        
+        // Buscamos los temas del curso
+        temas.find({ id_curso: req.params.id }, function (err, content){
+			// Eliminamos los temas del curso
+            for(var i = 0; i < content.length; i++){
+                content[i].remove(function (err){
+                    if(!err) console.log('Eliminado con exito');
+                    else console.log('Error: ' + err);		
+                });   
+            }
+		});
+        
+        // Buscamos el curso
 		cursos.findById(req.params.id, function (err, content){
 			// Eliminamos el curso
 			content.remove(function (err){

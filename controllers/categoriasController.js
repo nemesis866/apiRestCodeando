@@ -90,7 +90,7 @@ module.exports = function (app){
 	{
 		// Buscamos la categoria
 		categories.findById(req.params.id, function (err, content){
-			// Eliminamos el usuario
+			// Eliminamos la categoria
 			content.remove(function (err){
 				if(!err) console.log('Eliminado con exito');
 				else console.log('Error: ' + err);		
