@@ -17,11 +17,9 @@ var filesTema = new Schema({
 	control: { type: Number, default: 0 },
 	ext: String,
 	fecha: { type: Date, default: Date.now },
-	id_discusion: { type: String, required: true }, // *
+	id_tema: { type: String, required: true }, // *
 	name: { type: String, required: true }, // *
-	size: Number,
-	type: { type: String, default: 'DIS' },
-	user: { type: String, required: true } // *
+	size: Number
 });
 
 // Exportamos el modelo

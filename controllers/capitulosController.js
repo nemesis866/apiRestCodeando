@@ -114,6 +114,19 @@ module.exports = function (app)
             temas.find({ id_curso: id }, function (err, content){
                 // Eliminamos los temas del capitulo
                 for(var i = 0; i < content.length; i++){
+                    // Buscamos los archivos de los temas
+                    var file = require('./../models/fileTema');
+                    file.findById(content[i]._id, function (err, temp){
+                        // Eliminamos
+                        for(var i = 0; i < temp.length; i++){
+                            temp[i].remove(function (err){
+                                if(!err) console.log('Eliminado con exito');
+                                else console.log('Error: ' + err);		
+                            });
+                        }
+                    });
+                    
+                    // Eliminamos
                     content[i].remove(function (err){
                         if(!err) console.log('Eliminado con exito');
                         else console.log('Error: ' + err);		
