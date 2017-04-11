@@ -109,12 +109,14 @@ module.exports = function (app)
 	var deleteFile = function (req, res)
 	{
 		// Buscamos los capitulos del curso
-        filesTema.findById(req.body.id, function (err, content){
+        filesTema.findById(req.params.id, function (err, content){
 			// Eliminamos el archivo
             content.remove(function (err){
                 if(!err) console.log('Eliminado con exito');
                 else console.log('Error: ' + err);		
             });
+            
+            res.send(content);
 		});
 	}
 
